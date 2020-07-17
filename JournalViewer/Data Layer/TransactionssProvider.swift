@@ -12,9 +12,9 @@ class TransactionsProvider {
         let queryString  = """
             SELECT
                 transactions.transaction_id,
-                splits.split_date,
+                DATE_FORMAT(splits.split_date, '%d %M %Y') as split_date,
                 splits.description,
-                splits.currency,
+                splits.currency as currency,
                 splits.amount,
                 split_accounts.account_id
             FROM splits

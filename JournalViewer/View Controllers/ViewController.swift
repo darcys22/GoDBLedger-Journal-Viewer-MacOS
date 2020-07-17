@@ -68,10 +68,26 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
                 cell?.textField?.stringValue = task.Date ?? ""
 
                 return cell
-            } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier(rawValue: "descriptionColumn") {
-                let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "dateCellIdentifier"), owner: nil) as? NSTableCellView
-                cell?.textField?.stringValue = task.Description ?? ""
+            } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier(rawValue: "idColumn") {
+                let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "idCellIdentifier"), owner: nil) as? NSTableCellView
+                cell?.textField?.stringValue = task.ID ?? ""
                 return cell
+            } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier(rawValue: "descriptionColumn") {
+            let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "descriptionCellIdentifier"), owner: nil) as? NSTableCellView
+            cell?.textField?.stringValue = task.Description ?? ""
+            return cell
+            } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier(rawValue: "accountColumn") {
+            let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "accountCellIdentifier"), owner: nil) as? NSTableCellView
+            cell?.textField?.stringValue = task.Account ?? ""
+            return cell
+            } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier(rawValue: "currencyColumn") {
+            let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "currencyCellIdentifier"), owner: nil) as? NSTableCellView
+            cell?.textField?.stringValue = task.Currency ?? ""
+            return cell
+            } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier(rawValue: "amountColumn") {
+            let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "amountCellIdentifier"), owner: nil) as? NSTableCellView
+            cell?.textField?.stringValue = (task.Amount ?? 0).stringValue
+            return cell
             }
         }
         else if (rtableView == tbtableView)
